@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Frijole' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Knewave' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Mochiy Pop P One' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Nabla' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Bungee Spice' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Cinzel Decorative' rel='stylesheet'>
+
+    <link href='https://fonts.googleapis.com/css?family=Diplomata SC' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Alfa Slab One' rel='stylesheet'>
+    <title>Document</title>
+    <link rel="stylesheet" href="stonr.css">
+   <script src="stone .js"></script>
+</head>
+<body>
+   
+   <div class="CONTAINER">
+    <div class="heading"><center><H1 class="Blazing">STONE PAPPER SCISSOR </H1>  <button type="button" onclick="re()"  id="reset">RESTART</button></center>
+    </div><br>
+    <div class="message">
+      <center>
+        <p id="result"></p>
+        <p id="gc" class="font-effect-fire-animation"></p>
+        <p id="cc"></p><P id="rest"></P><p id="start"></p>
+                      </center></div>
+    <div class="images">
+        <div class="computer">
+            <img src="images/stoneComputer.png" ><br>
+            
+        </div>
+       
+        <div class="player">
+            <img src="images/scissorsPlayer.png" ><br>
+            
+        </div>
+    </div>
+    <!-- <div class="result1"><center><H1  id="result"></H1></center><br> -->
+      <!-- <p class="comment"></p></div> -->
+    <div class="points">
+        COMPUTER - <span id="computerPoints">0
+
+        </span>/
+        <span id="playerPoints">0</span> - PLAYER
+    </div>
+    <div class="options">
+        <button type="button"  style="  margin-left: 0px;" id="n3">STONE</button>
+        <button type="button"  style="  margin-left: 100px;" id="n1">PAPER</button>
+        <button type="button" style="  margin-left: 100px;" id="n2">SCISSORS</button>
+    </div>
+    <div class="lone"></div>
+   </div>
+
+   
+   
+    <script>
+
+ var computer = document.querySelector(".computer img");
+var player = document.querySelector(".player img");
+var computerPoints = document.getElementById("computerPoints");
+var playerPoints = document.getElementById("playerPoints");
+var options = document.querySelectorAll(".options button");
+var cp = parseInt(computerPoints.innerHTML);
+ var pp = parseInt(playerPoints.innerHTML);
+
+options.forEach((option) => 
+{
+  option.addEventListener("click", () => 
+  {
+    computer.classList.add("shakeComputer");
+    player.classList.add("shakePlayer");
+
+    setTimeout(() =>
+     {
+      computer.classList.remove("shakeComputer");
+      player.classList.remove("shakePlayer");
+
+      player.src = "images/" +option.innerHTML+ "Player.png";
+
+      const choice = ["STONE", "PAPER", "SCISSORS"];
+      var i = Math.floor(Math.random() * 3);
+      var computerChoice = choice[i];
+      computer.src = "images/"+computerChoice +"Computer.png";
+
+      var cp = parseInt(computerPoints.innerHTML);
+      var pp = parseInt(playerPoints.innerHTML);
+
+      if(cp==0 && pp==0 ){
+        document.getElementById("start").innerHTML="Lets begins the game.."
+
+      }
+
+
+
+
+      if(cp==4 || pp==4)
+{
+  if(cp<pp)
+  {
+    document.getElementById("gc").innerHTML="GAME OVER!!!"
+    document.getElementById("cc").innerHTML="YOU WON THE GAME"
+    document.getElementById("start").innerHTML=""
+    document.getElementById("result").innerHTML=""
+    document.getElementById("playerPoints").innerHTML=0
+  document.getElementById("computerPoints").innerHTML=0
+  document.getElementById("rest").innerHTML=" click RESTART to continue.."
+
+  }
+  else if(pp<cp)
+  {
+    document.getElementById("gc").innerHTML="GAME OVER!!!"
+    document.getElementById("cc").innerHTML="YOU LOSS THE GAME"
+    document.getElementById("rest").innerHTML=" click RESTART to continue.."
+    document.getElementById("start").innerHTML=""
+    document.getElementById("result").innerHTML=""
+    document.getElementById("playerPoints").innerHTML=0
+  document.getElementById("computerPoints").innerHTML=0
+  
+
+  }
+}
+if(pp<4 && cp<4)
+{
+
+      if (option.innerHTML === "STONE") 
+      {
+        if (computerChoice === "PAPER")
+        {
+          computerPoints.innerHTML = cp + 1;
+          document.getElementById("start").innerHTML=""
+          document.getElementById("result").innerHTML="- oops -"
+          document.getElementById("gc").innerHTML=""
+    document.getElementById("cc").innerHTML=""
+    document.getElementById("rest").innerHTML=""
+        }
+        else if (computerChoice === "SCISSORS")
+        {
+          playerPoints.innerHTML = pp + 1;
+          document.getElementById("result").innerHTML="- good move -"
+          document.getElementById("start").innerHTML=""
+          document.getElementById("gc").innerHTML=""
+    document.getElementById("cc").innerHTML=""
+    document.getElementById("rest").innerHTML=""
+        }
+      }
+       else if (option.innerHTML === "PAPER") 
+      {
+        if (computerChoice === "SCISSORS")
+        {
+          computerPoints.innerHTML = cp + 1;
+          document.getElementById("result").innerHTML="- oops -"
+          document.getElementById("start").innerHTML=""
+          document.getElementById("gc").innerHTML=""
+    document.getElementById("cc").innerHTML=""
+    document.getElementById("rest").innerHTML=""
+        }
+        else if (computerChoice === "STONE")
+        {
+          playerPoints.innerHTML = pp + 1;
+          document.getElementById("result").innerHTML="- good move -"
+          document.getElementById("start").innerHTML=""
+          document.getElementById("gc").innerHTML=""
+    document.getElementById("cc").innerHTML=""
+    document.getElementById("rest").innerHTML=""
+        }
+      } 
+      else 
+      {
+        if (computerChoice === "STONE")
+        {
+          computerPoints.innerHTML = cp + 1;
+          document.getElementById("result").innerHTML="- oops -"
+          document.getElementById("start").innerHTML=""
+          document.getElementById("gc").innerHTML=""
+    document.getElementById("cc").innerHTML=""
+    document.getElementById("rest").innerHTML=""
+        }
+        else if (computerChoice === "PAPER")
+        {
+          playerPoints.innerHTML = pp + 1;
+          document.getElementById("result").innerHTML="- good move -"
+          document.getElementById("start").innerHTML=""
+          document.getElementById("gc").innerHTML=""
+    document.getElementById("cc").innerHTML=""
+    document.getElementById("rest").innerHTML=""
+        }
+      }
+    }
+      
+
+
+    }, 900);
+  });
+
+});
+function re()
+{
+  document.getElementById("playerPoints").innerHTML=0
+  document.getElementById("computerPoints").innerHTML=0
+  document.getElementById("start").innerHTML="Lets begins the game.."
+  document.getElementById("rest").innerHTML=
+  document.getElementById("result").innerHTML=""
+  document.getElementById("gc").innerHTML=""
+    document.getElementById("cc").innerHTML=""
+    
+}
+
+
+
+</script>
+
+
+</body>
+</html>
