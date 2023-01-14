@@ -82,7 +82,7 @@ options.forEach((option) =>
 
       player.src = "images/" +option.innerHTML+ "Player.png";
 
-      const choice = ["STONE", "PAPER", "SCISSORS"];
+      const choice = ["stone", "paper", "scissors"];
       var i = Math.floor(Math.random() * 3);
       var computerChoice = choice[i];
       computer.src = "images/"+computerChoice +"Computer.png";
@@ -127,9 +127,9 @@ options.forEach((option) =>
 if(pp<4 && cp<4)
 {
 
-      if (option.innerHTML === "STONE") 
+      if (option.innerHTML === "stone") 
       {
-        if (computerChoice === "PAPER")
+        if (computerChoice === "paper")
         {
           computerPoints.innerHTML = cp + 1;
           document.getElementById("start").innerHTML=""
@@ -138,7 +138,7 @@ if(pp<4 && cp<4)
     document.getElementById("cc").innerHTML=""
     document.getElementById("rest").innerHTML=""
         }
-        else if (computerChoice === "SCISSORS")
+        else if (computerChoice === "scissors")
         {
           playerPoints.innerHTML = pp + 1;
           document.getElementById("result").innerHTML="- good move -"
@@ -148,9 +148,9 @@ if(pp<4 && cp<4)
     document.getElementById("rest").innerHTML=""
         }
       }
-       else if (option.innerHTML === "PAPER") 
+       else if (option.innerHTML === "paper") 
       {
-        if (computerChoice === "SCISSORS")
+        if (computerChoice === "scissors")
         {
           computerPoints.innerHTML = cp + 1;
           document.getElementById("result").innerHTML="- oops -"
@@ -159,7 +159,7 @@ if(pp<4 && cp<4)
     document.getElementById("cc").innerHTML=""
     document.getElementById("rest").innerHTML=""
         }
-        else if (computerChoice === "STONE")
+        else if (computerChoice === "stone")
         {
           playerPoints.innerHTML = pp + 1;
           document.getElementById("result").innerHTML="- good move -"
@@ -171,7 +171,7 @@ if(pp<4 && cp<4)
       } 
       else 
       {
-        if (computerChoice === "STONE")
+        if (computerChoice === "stone")
         {
           computerPoints.innerHTML = cp + 1;
           document.getElementById("result").innerHTML="- oops -"
@@ -180,7 +180,7 @@ if(pp<4 && cp<4)
     document.getElementById("cc").innerHTML=""
     document.getElementById("rest").innerHTML=""
         }
-        else if (computerChoice === "PAPER")
+        else if (computerChoice === "papper")
         {
           playerPoints.innerHTML = pp + 1;
           document.getElementById("result").innerHTML="- good move -"
