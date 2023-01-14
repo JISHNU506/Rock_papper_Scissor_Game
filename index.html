@@ -49,9 +49,9 @@
         <span id="playerPoints">0</span> - PLAYER
     </div>
     <div class="options">
-        <button type="button"  style="  margin-left: 0px;" id="n3">STONE</button>
-        <button type="button"  style="  margin-left: 100px;" id="n1">PAPER</button>
-        <button type="button" style="  margin-left: 100px;" id="n2">SCISSORS</button>
+        <button type="button"  style="  margin-left: 0px;" id="n3">stone</button>
+        <button type="button"  style="  margin-left: 100px;" id="n1">paper</button>
+        <button type="button" style="  margin-left: 100px;" id="n2">scissors</button>
     </div>
     <div class="lone"></div>
    </div>
@@ -81,6 +81,7 @@ options.forEach((option) =>
       player.classList.remove("shakePlayer");
 
       player.src = "images/" +option.innerHTML+"Player.png";
+console.log("player==>",option.innerHTML);
 
       const choice = ["stone", "paper", "scissors"];
       var i = Math.floor(Math.random() * 3);
